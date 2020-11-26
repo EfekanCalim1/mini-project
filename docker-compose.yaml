@@ -1,0 +1,16 @@
+version: '3.7'
+
+services: 
+  service_1:
+    image: ecalim/service_1:latest
+    build: ./service_1
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+  service_2:
+    image: ecalim/service_2:latest
+    build: ./service_2
+    ports:
+    - target: 5001
+      protocol: tcp
