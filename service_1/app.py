@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    animal = requests.get("http://http://service_2:5000/animal")
-    noise = requests.post("http://http://service_2:5000/noise", data=animal.text)
+    animal = requests.get("http://service_2:5001/animal")
+    noise = requests.post("http://service_2:5001/noise", data=animal.text)
     return render_template('index.html', animal=animal.text, noise=noise.text)
 
 
