@@ -8,9 +8,13 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
+    deploy:
+      replicas: 2
   service_2:
     image: ecalim/service_2:latest
     build: ./service_2
     ports:
     - target: 5001
       protocol: tcp
+    deploy:
+      replicas: 2

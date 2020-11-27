@@ -1,11 +1,13 @@
 #! /bin/bash
 
-docker build -t testing-image -f testing/Dockerfile .
-docker run -it -d --name testing-container testing-image
+cd service_1/
+pip3 install -r requirements.txt
+python3 -m pytest --cov . --cov-report term-missing
 
-docker exec testing-container pytest ./service_1 --cov ./service_1
+cd .. 
 
-docker exec testing-container pytest ./service_2 --cov ./service_2
+cd service_2/
+pip3 install -r requirements.txt
+python3 -m pytest --cov . --cov-report term-missing
 
-docker stop testing-container
-docker rm testing-container 
+cd ..
